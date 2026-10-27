@@ -1,0 +1,174 @@
+/* Simple, readable styles. Colours are defined once here so they are easy to change. */
+:root {
+  --ink: #1b263b;
+  --muted: #5b6577;
+  --accent: #0f766e;
+  --accent-dark: #0b5a54;
+  --danger: #b91c1c;
+  --card: #ffffff;
+  --page: #f3f5f8;
+  --border: #d7dde5;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  font: inherit;
+  font-weight: 400;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+input.invalid {
+  border-color: var(--danger);
+}
+
+.hint {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+input.invalid + .hint {
+  color: var(--danger);
+}
+
+button {
+  margin-top: 24px;
+  font: inherit;
+  font-weight: 600;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fdecec;
+  color: var(--danger);
+  border: 1px solid #f5c2c2;
+}
+
+.result .price {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 4px 0 8px;
+}
+
+/* ---- additions for the used-car app ---- */
+.estimates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.estimate {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.estimate.main {
+  border-color: var(--accent);
+  background: #f0faf8;
+}
+
+.estimate .price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.estimate.main .price {
+  color: var(--accent);
+}
+
+.estimate .label {
+  font-weight: 600;
+  margin: 0;
+}
+
+input:disabled {
+  background: #eef1f5;
+  color: var(--muted);
+}
+
+.explain {
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.hint.error {
+  color: var(--danger);
+}

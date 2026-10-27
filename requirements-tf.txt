@@ -1,0 +1,4 @@
+# Optional: everything in requirements.txt plus TensorFlow, to run the "# NO-RUN" Keras cells
+# and let the API use models/car_price_ann.keras. TensorFlow needs Python 3.10-3.12.
+-r requirements.txt
+tensorflow>=2.16,<3

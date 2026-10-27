@@ -1,0 +1,120 @@
+{
+  "data_year": 2025,
+  "target": "price_lakhs",
+  "target_transform": "log1p (predictions are converted back with expm1)",
+  "numeric_features": [
+    "car_age",
+    "km_driven",
+    "owners",
+    "mileage_kmpl",
+    "engine_cc"
+  ],
+  "categorical_features": [
+    "brand",
+    "model_segment",
+    "fuel",
+    "transmission",
+    "city",
+    "seller_type"
+  ],
+  "categories": {
+    "brand": [
+      "Honda",
+      "Hyundai",
+      "Kia",
+      "Mahindra",
+      "Maruti",
+      "Renault",
+      "Skoda",
+      "Tata",
+      "Toyota"
+    ],
+    "model_segment": [
+      "Hatchback",
+      "SUV",
+      "Sedan"
+    ],
+    "fuel": [
+      "CNG",
+      "Diesel",
+      "Electric",
+      "Petrol"
+    ],
+    "transmission": [
+      "Automatic",
+      "Manual"
+    ],
+    "city": [
+      "Bengaluru",
+      "Chennai",
+      "Delhi",
+      "Hyderabad",
+      "Jaipur",
+      "Kolkata",
+      "Mumbai",
+      "Pune"
+    ],
+    "seller_type": [
+      "Dealer",
+      "Individual"
+    ]
+  },
+  "numeric_ranges": {
+    "car_age": [
+      1.0,
+      15.0
+    ],
+    "km_driven": [
+      5700.0,
+      456700.0
+    ],
+    "owners": [
+      1.0,
+      4.0
+    ],
+    "mileage_kmpl": [
+      9.2,
+      30.6
+    ],
+    "engine_cc": [
+      800.0,
+      2800.0
+    ]
+  },
+  "year_range": [
+    2010,
+    2024
+  ],
+  "electric_min_year": 2019,
+  "city_aliases": {
+    "Bangalore": "Bengaluru"
+  },
+  "models": {
+    "ann_sklearn": {
+      "name": "MLPRegressor ANN (scikit-learn)",
+      "file": "car_price_mlp_sklearn.joblib",
+      "test_metrics": {
+        "MAE_lakhs": 0.389,
+        "MAPE_pct": 8.97,
+        "R2": 0.962
+      }
+    },
+    "ann_keras": {
+      "name": "Keras ANN (TensorFlow)",
+      "file": "car_price_ann.keras",
+      "preprocessor": "preprocessor.joblib",
+      "output": "log1p(price_lakhs)"
+    },
+    "gradient_boosting": {
+      "name": "HistGradientBoosting",
+      "file": "car_price_gb.joblib",
+      "test_metrics": {
+        "MAE_lakhs": 0.374,
+        "MAPE_pct": 8.68,
+        "R2": 0.965
+      }
+    }
+  },
+  "baseline_test_mae": 2.555,
+  "train_rows": 4790
+}
